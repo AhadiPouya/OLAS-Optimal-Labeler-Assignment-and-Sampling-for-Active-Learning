@@ -35,7 +35,7 @@ pd.DataFrame.append = _append_compat
 # --------------------------------------------------------------------------
 # Drive paths
 # --------------------------------------------------------------------------
-DRIVE_BASE    = '/content/drive/MyDrive/OLAS_Results'
+DRIVE_BASE    = os.environ.get('OLAS_BASE_DIR', 'OLAS_Results')  # set this to your project folder
 DRIVE_DATA    = os.path.join(DRIVE_BASE, 'Data')
 DRIVE_RESULTS = os.path.join(DRIVE_BASE, 'Results')
 os.makedirs(DRIVE_RESULTS, exist_ok=True)

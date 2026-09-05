@@ -2,8 +2,9 @@
 # =============================================================================
 # STEP 1 -- Mount Drive
 # =============================================================================
-from google.colab import drive
-drive.mount('/content/drive')
+# If running in Google Colab, mount Drive first (comment out if running locally):
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 # =============================================================================
 # STEP 2 -- Imports
@@ -38,7 +39,7 @@ pd.DataFrame.append = _append_compat
 # =============================================================================
 # STEP 3 -- Paths
 # =============================================================================
-DRIVE_BASE    = '/content/drive/MyDrive/OLAS_Results'
+DRIVE_BASE    = os.environ.get('OLAS_BASE_DIR', 'OLAS_Results')  # set this to your project folder
 DRIVE_DATA    = os.path.join(DRIVE_BASE, 'Data')
 DRIVE_RESULTS = os.path.join(DRIVE_BASE, 'Results')
 os.makedirs(DRIVE_RESULTS, exist_ok=True)
